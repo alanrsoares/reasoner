@@ -127,6 +127,74 @@ var fadeIn = Css.keyframes(/* :: */[
       ]
     ]);
 
+var letterFade = Css.keyframes(/* :: */[
+      /* tuple */[
+        0,
+        /* :: */[
+          Css.opacity(0.0),
+          /* :: */[
+            Css.fontSize(Css.rem(3)),
+            /* [] */0
+          ]
+        ]
+      ],
+      /* :: */[
+        /* tuple */[
+          50,
+          /* :: */[
+            Css.opacity(0.0),
+            /* [] */0
+          ]
+        ],
+        /* :: */[
+          /* tuple */[
+            70,
+            /* :: */[
+              Css.opacity(0.1),
+              /* [] */0
+            ]
+          ],
+          /* :: */[
+            /* tuple */[
+              90,
+              /* :: */[
+                Css.opacity(1.0),
+                /* :: */[
+                  Css.fontSize(Css.rem(3)),
+                  /* [] */0
+                ]
+              ]
+            ],
+            /* :: */[
+              /* tuple */[
+                91,
+                /* :: */[
+                  Css.opacity(0.0),
+                  /* :: */[
+                    Css.fontSize(Css.rem(3)),
+                    /* [] */0
+                  ]
+                ]
+              ],
+              /* :: */[
+                /* tuple */[
+                  100,
+                  /* :: */[
+                    Css.opacity(0.0),
+                    /* :: */[
+                      Css.fontSize(Css.rem(0)),
+                      /* [] */0
+                    ]
+                  ]
+                ],
+                /* [] */0
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]);
+
 var appear = Css.keyframes(/* :: */[
       /* tuple */[
         0,
@@ -169,6 +237,7 @@ var Animations = {
   bounce: bounce,
   bounceAndDisappear: bounceAndDisappear,
   fadeIn: fadeIn,
+  letterFade: letterFade,
   appear: appear
 };
 

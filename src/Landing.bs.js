@@ -2,6 +2,9 @@
 
 import * as Css from "bs-css/src/Css.js";
 import * as React from "react";
+import * as $$String from "bs-platform/lib/es6/string.js";
+import * as Belt_List from "bs-platform/lib/es6/belt_List.js";
+import * as Caml_string from "bs-platform/lib/es6/caml_string.js";
 import * as Link$Reasoner from "./Link.bs.js";
 import * as Theme$Reasoner from "./Theme.bs.js";
 import * as Utils$Reasoner from "./Utils.bs.js";
@@ -33,45 +36,65 @@ var logo$1 = Css.style(/* :: */[
       ]
     ]);
 
+var titleWrapper = Css.style(/* :: */[
+      Css.display(/* flex */-1010954439),
+      /* [] */0
+    ]);
+
 var title = Css.style(/* :: */[
-      Css.fontSize(Css.rem(2)),
+      Css.fontSize(Css.rem(3)),
       /* :: */[
-        Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.appear),
+        Css.fontWeight(/* `num */[
+              5496390,
+              100
+            ]),
         /* :: */[
-          Css.animationDuration(3000),
+          Css.color(Theme$Reasoner.Colors.accent),
           /* :: */[
-            Css.verticalAlign(/* middle */-866200747),
-            /* [] */0
+            Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.appear),
+            /* :: */[
+              Css.animationDuration(3000),
+              /* :: */[
+                Css.verticalAlign(/* middle */-866200747),
+                /* :: */[
+                  Css.fontFamily("Fredericka the Great"),
+                  /* [] */0
+                ]
+              ]
+            ]
           ]
         ]
       ]
     ]);
 
 var button = Css.style(/* :: */[
-      Css.display(Css.flexBox),
+      Css.display(/* flex */-1010954439),
       /* :: */[
         Css.justifyContent(/* center */98248149),
         /* :: */[
           Css.alignItems(/* center */98248149),
           /* :: */[
-            Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
+            Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.primary),
             /* :: */[
               Css.backgroundColor(Theme$Reasoner.Colors.background),
               /* :: */[
-                Css.color(Theme$Reasoner.Colors.accent),
+                Css.color(Theme$Reasoner.Colors.primary),
                 /* :: */[
                   Css.height(Css.rem(3.0)),
                   /* :: */[
-                    Css.fontSize(Css.rem(1.0)),
+                    Css.fontSize(Css.rem(1.1)),
                     /* :: */[
-                      Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.appear),
+                      Css.fontWeight(/* bold */-1055161979),
                       /* :: */[
-                        Css.animationDuration(4000),
+                        Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.appear),
                         /* :: */[
-                          Css.cursor(/* pointer */-786317123),
+                          Css.animationDuration(4000),
                           /* :: */[
-                            Css.padding2(Css.rem(0.4), Css.rem(0.8)),
-                            /* [] */0
+                            Css.cursor(/* pointer */-786317123),
+                            /* :: */[
+                              Css.padding2(Css.rem(0.2), Css.rem(0.8)),
+                              /* [] */0
+                            ]
                           ]
                         ]
                       ]
@@ -102,12 +125,30 @@ var body = Css.style(/* :: */[
       ]
     ]);
 
+function letterFade(delay) {
+  return Css.style(/* :: */[
+              Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.letterFade),
+              /* :: */[
+                Css.animationDuration(3000),
+                /* :: */[
+                  Css.animationDelay(delay),
+                  /* :: */[
+                    Css.fontSize(Css.rem(0)),
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]);
+}
+
 var Styles = {
   container: container,
   logo: logo$1,
+  titleWrapper: titleWrapper,
   title: title,
   button: button,
-  body: body
+  body: body,
+  letterFade: letterFade
 };
 
 function Landing$Button(Props) {
@@ -121,7 +162,46 @@ var Button = {
   make: Landing$Button
 };
 
+function Landing$Text(Props) {
+  var children = Props.children;
+  return React.createElement(React.Fragment, undefined, Utils$Reasoner.str(children));
+}
+
+var $$Text = {
+  make: Landing$Text
+};
+
+function Landing$TitleLetter(Props) {
+  var animate = Props.animate;
+  var children = Props.children;
+  return React.createElement("span", {
+              className: Css.merge(/* :: */[
+                    title,
+                    /* :: */[
+                      animate ? letterFade(0) : "",
+                      /* [] */0
+                    ]
+                  ])
+            }, React.createElement(Landing$Text, {
+                  children: children
+                }));
+}
+
+var TitleLetter = {
+  make: Landing$TitleLetter
+};
+
+function isVowel(x) {
+  return $$String.contains("aeiou", x);
+}
+
 function Landing(Props) {
+  var brand = Belt_List.map(Utils$Reasoner.split("Reasonr"), (function (x) {
+          return React.createElement(Landing$TitleLetter, {
+                      animate: $$String.contains("aeiou", Caml_string.get(x, 0)),
+                      children: x
+                    });
+        }));
   return React.createElement(React.Fragment, undefined, React.createElement("img", {
                   className: logo$1,
                   src: logo
@@ -129,12 +209,12 @@ function Landing(Props) {
                   className: container
                 }, React.createElement("div", {
                       className: body
-                    }, React.createElement("h1", {
-                          className: title
-                        }, Utils$Reasoner.str("Reasoner")), React.createElement(Link$Reasoner.make, {
+                    }, React.createElement("div", {
+                          className: titleWrapper
+                        }, Belt_List.toArray(brand)), React.createElement(Link$Reasoner.make, {
                           path: "app",
                           className: button,
-                          children: Utils$Reasoner.str("Get start here")
+                          children: Utils$Reasoner.str("Start here")
                         }))));
 }
 
@@ -144,6 +224,9 @@ export {
   logo ,
   Styles ,
   Button ,
+  $$Text ,
+  TitleLetter ,
+  isVowel ,
   make ,
   
 }

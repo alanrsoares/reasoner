@@ -6,19 +6,13 @@ import * as Theme$Reasoner from "./Theme.bs.js";
 import * as Utils$Reasoner from "./Utils.bs.js";
 
 var container = Css.style(/* :: */[
-      Css.display(/* flex */-1010954439),
+      Css.flex(/* `num */[
+            5496390,
+            1.0
+          ]),
       /* :: */[
-        Css.flex(/* `num */[
-              5496390,
-              1.0
-            ]),
-        /* :: */[
-          Css.flexDirection(/* column */-963948842),
-          /* :: */[
-            Css.alignSelf(/* start */67859554),
-            /* [] */0
-          ]
-        ]
+        Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.error),
+        /* [] */0
       ]
     ]);
 
@@ -64,11 +58,26 @@ var display = Css.style(/* :: */[
       ]
     ]);
 
+var controls = Css.style(/* :: */[
+      Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
+      /* :: */[
+        Css.padding(Css.rem(1)),
+        /* :: */[
+          Css.flex(/* `num */[
+                5496390,
+                1.0
+              ]),
+          /* [] */0
+        ]
+      ]
+    ]);
+
 var Styles = {
   container: container,
   title: title,
   button: button,
-  display: display
+  display: display,
+  controls: controls
 };
 
 function Reasoner$Display(Props) {
@@ -93,7 +102,9 @@ var Button = {
 
 function Reasoner$Controls(Props) {
   var children = Props.children;
-  return React.createElement("div", undefined, children);
+  return React.createElement("div", {
+              className: controls
+            }, children);
 }
 
 var Controls = {

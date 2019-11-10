@@ -35,6 +35,16 @@ module Animations = {
 
   let fadeIn = keyframes([(0, [opacity(0.0)]), (100, [opacity(1.0)])]);
 
+  let letterFade =
+    keyframes([
+      (0, [opacity(0.0), fontSize(3.->rem)]),
+      (50, [opacity(0.0)]),
+      (70, [opacity(0.1)]),
+      (90, [opacity(1.0), fontSize(3.->rem)]),
+      (91, [opacity(0.0), fontSize(3.->rem)]),
+      (100, [opacity(0.0), fontSize(0.->rem)]),
+    ]);
+
   let appear =
     keyframes([
       (0, [opacity(0.0)]),

@@ -9,23 +9,26 @@ import * as ReasonReactRouter from "reason-react/src/ReasonReactRouter.js";
 import * as Reasoner$Reasoner from "./Reasoner.bs.js";
 
 var container = Css.style(/* :: */[
-      Css.fontFamily("Segoe UI, Roboto, Monaco, Helvetica, sans-serif"),
+      Css.fontFamily("Montserrat, Segoe UI, Roboto, Monaco, Helvetica, sans-serif"),
       /* :: */[
-        Css.display(/* flex */-1010954439),
+        Css.backgroundColor(Theme$Reasoner.Colors.background),
         /* :: */[
-          Css.backgroundColor(Theme$Reasoner.Colors.background),
+          Css.display(/* flex */-1010954439),
           /* :: */[
-            Css.alignItems(/* center */98248149),
+            Css.flex(/* `num */[
+                  5496390,
+                  1.0
+                ]),
             /* :: */[
-              Css.justifyContent(/* center */98248149),
+              Css.alignItems(/* center */98248149),
               /* :: */[
-                Css.height(Css.vh(100)),
+                Css.justifyContent(/* center */98248149),
                 /* :: */[
                   Css.color(Theme$Reasoner.Colors.text),
                   /* :: */[
                     Css.overflow(/* hidden */-862584982),
                     /* :: */[
-                      Css.padding(Css.rem(2)),
+                      Css.padding(Css.rem(1)),
                       /* [] */0
                     ]
                   ]
@@ -43,7 +46,6 @@ var Styles = {
 
 function App(Props) {
   var url = ReasonReactRouter.useUrl(undefined, /* () */0);
-  console.log(url[/* path */0]);
   var match = url[/* path */0];
   var tmp;
   var exit = 0;

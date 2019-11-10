@@ -6,10 +6,8 @@ module Styles = {
 
   let container =
     style([
-      display(`flex),
       flex(`num(1.0)),
-      flexDirection(`column),
-      alignSelf(`start),
+      border(Theme.borderWidth, `solid, Colors.error),
     ]);
 
   let title = style([fontSize(2.->rem), verticalAlign(`middle)]);
@@ -30,6 +28,13 @@ module Styles = {
       border(Theme.borderWidth, `solid, Colors.accent),
       padding(1.->rem),
     ]);
+
+  let controls =
+    style([
+      border(Theme.borderWidth, `solid, Colors.accent),
+      padding(1.->rem),
+      flex(`num(1.0)),
+    ]);
 };
 
 module Display = {
@@ -44,7 +49,7 @@ module Button = {
 
 module Controls = {
   [@react.component]
-  let make = (~children) => <div> children </div>;
+  let make = (~children) => <div className=Styles.controls> children </div>;
 };
 
 [@genType]

@@ -19,28 +19,34 @@ module Styles = {
       animationDuration(3000),
     ]);
 
+  let titleWrapper = style([display(`flex)]);
+
   let title =
     style([
-      fontSize(2.->rem),
+      fontSize(3.->rem),
+      fontWeight(`num(100)),
+      color(Colors.accent),
       animation(Animations.appear),
       animationDuration(3000),
       verticalAlign(`middle),
+      fontFamily("Fredericka the Great"),
     ]);
 
   let button =
     style([
-      display(flexBox),
+      display(`flex),
       justifyContent(`center),
       alignItems(`center),
-      border(Theme.borderWidth, `solid, Colors.accent),
+      border(Theme.borderWidth, `solid, Colors.primary),
       backgroundColor(Colors.background),
-      color(Colors.accent),
+      color(Colors.primary),
       height(3.0->rem),
-      fontSize(1.0->rem),
+      fontSize(1.1->rem),
+      fontWeight(`bold),
       animation(Animations.appear),
       animationDuration(4000),
       cursor(`pointer),
-      padding2(~v=0.4->rem, ~h=0.8->rem),
+      padding2(~v=0.2->rem, ~h=0.8->rem),
     ]);
 
   let body =
@@ -51,6 +57,14 @@ module Styles = {
       alignItems(`center),
       justifyContent(`spaceBetween),
     ]);
+
+  let letterFade = delay =>
+    style([
+      animation(Animations.letterFade),
+      animationDuration(3000),
+      animationDelay(delay),
+      fontSize(0.->rem),
+    ]);
 };
 
 module Button = {
@@ -59,15 +73,45 @@ module Button = {
     <button className=Styles.button> children </button>;
 };
 
+module Text = {
+  [@react.component]
+  let make = (~children) => {
+    <> children->str </>;
+  };
+};
+
+module TitleLetter = {
+  [@react.component]
+  let make = (~animate, ~children) => {
+    <span
+      className=Css.(
+        merge([Styles.title, animate ? Styles.letterFade(0) : ""])
+      )>
+      <Text> children </Text>
+    </span>;
+  };
+};
+
+let isVowel = x => "aeiou"->String.contains(x);
+
 [@genType]
 [@react.component]
 let make = () => {
+  let brand =
+    "Reasonr"
+    ->split
+    ->Belt.List.map(x =>
+        <TitleLetter animate={isVowel(x.[0])}> x </TitleLetter>
+      );
+
   <>
     <img src=logo className=Styles.logo />
     <div className=Styles.container>
       <div className=Styles.body>
-        <h1 className=Styles.title> "Reasoner"->str </h1>
-        <Link path="app" className=Styles.button> "Get start here"->str </Link>
+        <div className=Styles.titleWrapper>
+          {brand->Belt.List.toArray->ReasonReact.array}
+        </div>
+        <Link path="app" className=Styles.button> "Start here"->str </Link>
       </div>
     </div>
   </>;

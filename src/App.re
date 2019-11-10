@@ -4,15 +4,17 @@ module Styles = {
 
   let container =
     style([
-      fontFamily("Segoe UI, Roboto, Monaco, Helvetica, sans-serif"),
-      display(`flex),
+      fontFamily(
+        "Montserrat, Segoe UI, Roboto, Monaco, Helvetica, sans-serif",
+      ),
       backgroundColor(Colors.background),
+      display(`flex),
+      flex(`num(1.0)),
       alignItems(`center),
       justifyContent(`center),
-      height(100.->vh),
       color(Colors.text),
       overflow(`hidden),
-      padding(2.->rem),
+      padding(1.->rem),
     ]);
 };
 
@@ -20,8 +22,6 @@ module Styles = {
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
-
-  Js.log(url.path);
 
   <main className=Styles.container>
     {switch (url.path) {
