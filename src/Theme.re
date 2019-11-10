@@ -39,9 +39,9 @@ module Animations = {
     keyframes([
       (0, [opacity(0.0), fontSize(3.->rem)]),
       (50, [opacity(0.0)]),
-      (70, [opacity(0.1)]),
+      (70, [opacity(0.1), color(white)]),
       (90, [opacity(1.0), fontSize(3.->rem)]),
-      (91, [opacity(0.0), fontSize(3.->rem)]),
+      (91, [opacity(0.0), fontSize(3.->rem), color(red)]),
       (100, [opacity(0.0), fontSize(0.->rem)]),
     ]);
 

@@ -49,7 +49,7 @@ var title = Css.style(/* :: */[
               100
             ]),
         /* :: */[
-          Css.color(Theme$Reasoner.Colors.accent),
+          Css.color(Theme$Reasoner.Colors.text),
           /* :: */[
             Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.appear),
             /* :: */[
@@ -74,11 +74,11 @@ var button = Css.style(/* :: */[
         /* :: */[
           Css.alignItems(/* center */98248149),
           /* :: */[
-            Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.primary),
+            Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
             /* :: */[
               Css.backgroundColor(Theme$Reasoner.Colors.background),
               /* :: */[
-                Css.color(Theme$Reasoner.Colors.primary),
+                Css.color(Theme$Reasoner.Colors.accent),
                 /* :: */[
                   Css.height(Css.rem(3.0)),
                   /* :: */[
@@ -192,13 +192,13 @@ var TitleLetter = {
 };
 
 function isVowel(x) {
-  return $$String.contains("aeiou", x);
+  return $$String.contains("aAeEiIoOuU", x);
 }
 
 function Landing(Props) {
-  var brand = Belt_List.map(Utils$Reasoner.split("Reasonr"), (function (x) {
+  var brand = Belt_List.map(Utils$Reasoner.split("REASONER"), (function (x) {
           return React.createElement(Landing$TitleLetter, {
-                      animate: $$String.contains("aeiou", Caml_string.get(x, 0)),
+                      animate: $$String.contains("aAeEiIoOuU", Caml_string.get(x, 0)),
                       children: x
                     });
         }));

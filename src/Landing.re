@@ -25,7 +25,7 @@ module Styles = {
     style([
       fontSize(3.->rem),
       fontWeight(`num(100)),
-      color(Colors.accent),
+      color(Colors.text),
       animation(Animations.appear),
       animationDuration(3000),
       verticalAlign(`middle),
@@ -37,9 +37,9 @@ module Styles = {
       display(`flex),
       justifyContent(`center),
       alignItems(`center),
-      border(Theme.borderWidth, `solid, Colors.primary),
+      border(Theme.borderWidth, `solid, Colors.accent),
       backgroundColor(Colors.background),
-      color(Colors.primary),
+      color(Colors.accent),
       height(3.0->rem),
       fontSize(1.1->rem),
       fontWeight(`bold),
@@ -92,13 +92,13 @@ module TitleLetter = {
   };
 };
 
-let isVowel = x => "aeiou"->String.contains(x);
+let isVowel = x => "aAeEiIoOuU"->String.contains(x);
 
 [@genType]
 [@react.component]
 let make = () => {
   let brand =
-    "Reasonr"
+    "REASONER"
     ->split
     ->Belt.List.map(x =>
         <TitleLetter animate={isVowel(x.[0])}> x </TitleLetter>

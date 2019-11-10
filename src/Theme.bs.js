@@ -151,7 +151,10 @@ var letterFade = Css.keyframes(/* :: */[
             70,
             /* :: */[
               Css.opacity(0.1),
-              /* [] */0
+              /* :: */[
+                Css.color(Css.white),
+                /* [] */0
+              ]
             ]
           ],
           /* :: */[
@@ -172,7 +175,10 @@ var letterFade = Css.keyframes(/* :: */[
                   Css.opacity(0.0),
                   /* :: */[
                     Css.fontSize(Css.rem(3)),
-                    /* [] */0
+                    /* :: */[
+                      Css.color(Css.red),
+                      /* [] */0
+                    ]
                   ]
                 ]
               ],
