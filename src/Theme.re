@@ -14,6 +14,8 @@ module Colors = {
   let error = "B00020"->hex;
 };
 
+let borderWidth = Css.(0.1->rem);
+
 module Animations = {
   open Css;
 
@@ -28,7 +30,7 @@ module Animations = {
     keyframes([
       (0, [height(40.->vh), transform(scale(0.1, 0.1)), opacity(0.0)]),
       (50, [transform(scale(1.2, 1.2)), opacity(1.0)]),
-      (100, [transform(scale(0.0, 0.0)), opacity(0.0), height(0->px)]),
+      (100, [transform(scale(0.0, 0.0)), opacity(0.0), height(`zero)]),
     ]);
 
   let fadeIn = keyframes([(0, [opacity(0.0)]), (100, [opacity(1.0)])]);

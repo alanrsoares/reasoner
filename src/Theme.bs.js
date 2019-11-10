@@ -23,6 +23,8 @@ var Colors = {
   error: error
 };
 
+var borderWidth = Css.rem(0.1);
+
 var bounce = Css.keyframes(/* :: */[
       /* tuple */[
         0,
@@ -94,7 +96,7 @@ var bounceAndDisappear = Css.keyframes(/* :: */[
               /* :: */[
                 Css.opacity(0.0),
                 /* :: */[
-                  Css.height(Css.px(0)),
+                  Css.height(/* zero */-789508312),
                   /* [] */0
                 ]
               ]
@@ -172,6 +174,7 @@ var Animations = {
 
 export {
   Colors ,
+  borderWidth ,
   Animations ,
   
 }

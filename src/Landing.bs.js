@@ -23,7 +23,7 @@ var container = Css.style(/* :: */[
     ]);
 
 var logo$1 = Css.style(/* :: */[
-      Css.height(Css.px(0)),
+      Css.height(/* zero */-789508312),
       /* :: */[
         Css.animationName(Theme$Reasoner.Animations.bounceAndDisappear),
         /* :: */[
@@ -54,7 +54,7 @@ var button = Css.style(/* :: */[
         /* :: */[
           Css.alignItems(/* center */98248149),
           /* :: */[
-            Css.border(Css.px(2), /* solid */12956715, Theme$Reasoner.Colors.accent),
+            Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
             /* :: */[
               Css.backgroundColor(Theme$Reasoner.Colors.background),
               /* :: */[

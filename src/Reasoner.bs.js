@@ -15,11 +15,8 @@ var container = Css.style(/* :: */[
         /* :: */[
           Css.flexDirection(/* column */-963948842),
           /* :: */[
-            Css.border(Css.px(2), /* solid */12956715, Theme$Reasoner.Colors.accent),
-            /* :: */[
-              Css.alignSelf(/* start */67859554),
-              /* [] */0
-            ]
+            Css.alignSelf(/* start */67859554),
+            /* [] */0
           ]
         ]
       ]
@@ -33,21 +30,70 @@ var title = Css.style(/* :: */[
       ]
     ]);
 
+var button = Css.style(/* :: */[
+      Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
+      /* :: */[
+        Css.borderRadius(/* `percent */[
+              -119887163,
+              50.0
+            ]),
+        /* :: */[
+          Css.width(Css.rem(4)),
+          /* :: */[
+            Css.height(Css.rem(4)),
+            /* :: */[
+              Css.display(/* flex */-1010954439),
+              /* :: */[
+                Css.justifyContent(/* center */98248149),
+                /* :: */[
+                  Css.alignItems(/* center */98248149),
+                  /* [] */0
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]);
+
+var display = Css.style(/* :: */[
+      Css.border(Theme$Reasoner.borderWidth, /* solid */12956715, Theme$Reasoner.Colors.accent),
+      /* :: */[
+        Css.padding(Css.rem(1)),
+        /* [] */0
+      ]
+    ]);
+
 var Styles = {
   container: container,
-  title: title
+  title: title,
+  button: button,
+  display: display
 };
 
 function Reasoner$Display(Props) {
-  return React.createElement("div", undefined, Utils$Reasoner.str("display"));
+  return React.createElement("div", {
+              className: display
+            }, Utils$Reasoner.str("display"));
 }
 
 var Display = {
   make: Reasoner$Display
 };
 
+function Reasoner$Button(Props) {
+  return React.createElement("div", {
+              className: button
+            }, Utils$Reasoner.str("button"));
+}
+
+var Button = {
+  make: Reasoner$Button
+};
+
 function Reasoner$Controls(Props) {
-  return React.createElement("div", undefined, Utils$Reasoner.str("Controls"));
+  var children = Props.children;
+  return React.createElement("div", undefined, children);
 }
 
 var Controls = {
@@ -59,7 +105,9 @@ function Reasoner(Props) {
               className: container
             }, React.createElement("h1", {
                   className: title
-                }, Utils$Reasoner.str("Reasoner")), React.createElement(Reasoner$Display, { }), React.createElement(Reasoner$Controls, { }));
+                }, Utils$Reasoner.str("Reasoner")), React.createElement(Reasoner$Display, { }), React.createElement(Reasoner$Controls, {
+                  children: React.createElement(Reasoner$Button, { })
+                }));
 }
 
 var make = Reasoner;
@@ -67,6 +115,7 @@ var make = Reasoner;
 export {
   Styles ,
   Display ,
+  Button ,
   Controls ,
   make ,
   

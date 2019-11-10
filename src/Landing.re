@@ -14,7 +14,7 @@ module Styles = {
 
   let logo =
     style([
-      height(0->px),
+      height(`zero),
       animationName(Animations.bounceAndDisappear),
       animationDuration(3000),
     ]);
@@ -32,7 +32,7 @@ module Styles = {
       display(flexBox),
       justifyContent(`center),
       alignItems(`center),
-      border(2->px, `solid, Colors.accent),
+      border(Theme.borderWidth, `solid, Colors.accent),
       backgroundColor(Colors.background),
       color(Colors.accent),
       height(3.0->rem),
