@@ -1,1 +1,0 @@
-{ "dirs" : [ "src" ] , "pkgs" : [ [ "gentype" , "/home/alanrsoares/dev/reasoner/node_modules/gentype" ] , [ "bs-platform" , "/home/alanrsoares/dev/reasoner/node_modules/bs-platform" ] , [ "reason-react" , "/home/alanrsoares/dev/reasoner/node_modules/reason-react" ] , [ "bs-css" , "/home/alanrsoares/dev/reasoner/node_modules/bs-css" ] ] , "generated" : [] }
