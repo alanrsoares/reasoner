@@ -15,7 +15,7 @@ module Styles = {
   let logo =
     style([
       height(`zero),
-      animationName(Animations.bounceAndDisappear),
+      animationName(Animations.bounceAndDisappear(40.->vh)),
       animationDuration(3000),
     ]);
 
@@ -23,13 +23,13 @@ module Styles = {
 
   let title =
     style([
-      fontSize(3.->rem),
+      fontSize(2.6->rem),
       fontWeight(`num(100)),
       color(Colors.text),
       animation(Animations.appear),
       animationDuration(3000),
       verticalAlign(`middle),
-      fontFamily("Fredericka the Great"),
+      fontFamily(Fonts.display),
     ]);
 
   let button =
@@ -58,9 +58,9 @@ module Styles = {
       justifyContent(`spaceBetween),
     ]);
 
-  let letterFade = delay =>
+  let letterFadeOut = delay =>
     style([
-      animation(Animations.letterFade),
+      animation(Animations.letterFadeOut(2.6->rem)),
       animationDuration(3000),
       animationDelay(delay),
       fontSize(0.->rem),
@@ -75,21 +75,18 @@ module Button = {
 
 module Text = {
   [@react.component]
-  let make = (~children) => {
-    <> children->str </>;
-  };
+  let make = (~children) => <> children->str </>;
 };
 
 module TitleLetter = {
   [@react.component]
-  let make = (~animate, ~children) => {
+  let make = (~animate, ~children) =>
     <span
       className=Css.(
-        merge([Styles.title, animate ? Styles.letterFade(0) : ""])
+        merge([Styles.title, animate ? Styles.letterFadeOut(0) : ""])
       )>
       <Text> children </Text>
     </span>;
-  };
 };
 
 let isVowel = x => "aAeEiIoOuU"->String.contains(x);
@@ -104,15 +101,12 @@ let make = () => {
         <TitleLetter animate={isVowel(x.[0])}> x </TitleLetter>
       );
 
-  <>
-    <img src=logo className=Styles.logo />
-    <div className=Styles.container>
-      <div className=Styles.body>
-        <div className=Styles.titleWrapper>
-          {brand->Belt.List.toArray->ReasonReact.array}
-        </div>
-        <Link path="app" className=Styles.button> "Start here"->str </Link>
+  <div className=Styles.container>
+    <div className=Styles.body>
+      <div className=Styles.titleWrapper>
+        brand->Belt.List.toArray->ReasonReact.array
       </div>
+      <Link path="app" className=Styles.button> "Start here"->str </Link>
     </div>
-  </>;
+  </div>;
 };

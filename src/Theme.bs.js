@@ -23,6 +23,11 @@ var Colors = {
   error: error
 };
 
+var Fonts = {
+  text: "Montserrat",
+  display: "Fredericka the Great"
+};
+
 var borderWidth = Css.rem(0.1);
 
 var bounce = Css.keyframes(/* :: */[
@@ -63,49 +68,51 @@ var bounce = Css.keyframes(/* :: */[
       ]
     ]);
 
-var bounceAndDisappear = Css.keyframes(/* :: */[
-      /* tuple */[
-        0,
-        /* :: */[
-          Css.height(Css.vh(40)),
-          /* :: */[
-            Css.transform(Css.scale(0.1, 0.1)),
-            /* :: */[
-              Css.opacity(0.0),
-              /* [] */0
-            ]
-          ]
-        ]
-      ],
-      /* :: */[
-        /* tuple */[
-          50,
-          /* :: */[
-            Css.transform(Css.scale(1.2, 1.2)),
-            /* :: */[
-              Css.opacity(1.0),
-              /* [] */0
-            ]
-          ]
-        ],
-        /* :: */[
-          /* tuple */[
-            100,
-            /* :: */[
-              Css.transform(Css.scale(0.0, 0.0)),
-              /* :: */[
-                Css.opacity(0.0),
+function bounceAndDisappear(height$prime) {
+  return Css.keyframes(/* :: */[
+              /* tuple */[
+                0,
                 /* :: */[
-                  Css.height(/* zero */-789508312),
+                  Css.height(height$prime),
+                  /* :: */[
+                    Css.transform(Css.scale(0.1, 0.1)),
+                    /* :: */[
+                      Css.opacity(0.0),
+                      /* [] */0
+                    ]
+                  ]
+                ]
+              ],
+              /* :: */[
+                /* tuple */[
+                  50,
+                  /* :: */[
+                    Css.transform(Css.scale(1.2, 1.2)),
+                    /* :: */[
+                      Css.opacity(1.0),
+                      /* [] */0
+                    ]
+                  ]
+                ],
+                /* :: */[
+                  /* tuple */[
+                    100,
+                    /* :: */[
+                      Css.transform(Css.scale(0.0, 0.0)),
+                      /* :: */[
+                        Css.opacity(0.0),
+                        /* :: */[
+                          Css.height(/* zero */-789508312),
+                          /* [] */0
+                        ]
+                      ]
+                    ]
+                  ],
                   /* [] */0
                 ]
               ]
-            ]
-          ],
-          /* [] */0
-        ]
-      ]
-    ]);
+            ]);
+}
 
 var fadeIn = Css.keyframes(/* :: */[
       /* tuple */[
@@ -127,79 +134,81 @@ var fadeIn = Css.keyframes(/* :: */[
       ]
     ]);
 
-var letterFade = Css.keyframes(/* :: */[
-      /* tuple */[
-        0,
-        /* :: */[
-          Css.opacity(0.0),
-          /* :: */[
-            Css.fontSize(Css.rem(3)),
-            /* [] */0
-          ]
-        ]
-      ],
-      /* :: */[
-        /* tuple */[
-          50,
-          /* :: */[
-            Css.opacity(0.0),
-            /* [] */0
-          ]
-        ],
-        /* :: */[
-          /* tuple */[
-            70,
-            /* :: */[
-              Css.opacity(0.1),
-              /* :: */[
-                Css.color(Css.white),
-                /* [] */0
-              ]
-            ]
-          ],
-          /* :: */[
-            /* tuple */[
-              90,
-              /* :: */[
-                Css.opacity(1.0),
-                /* :: */[
-                  Css.fontSize(Css.rem(3)),
-                  /* [] */0
-                ]
-              ]
-            ],
-            /* :: */[
+function letterFadeOut(fontSize$prime) {
+  return Css.keyframes(/* :: */[
               /* tuple */[
-                91,
+                0,
                 /* :: */[
                   Css.opacity(0.0),
                   /* :: */[
-                    Css.fontSize(Css.rem(3)),
-                    /* :: */[
-                      Css.color(Css.red),
-                      /* [] */0
-                    ]
+                    Css.fontSize(fontSize$prime),
+                    /* [] */0
                   ]
                 ]
               ],
               /* :: */[
                 /* tuple */[
-                  100,
+                  30,
                   /* :: */[
                     Css.opacity(0.0),
-                    /* :: */[
-                      Css.fontSize(Css.rem(0)),
-                      /* [] */0
-                    ]
+                    /* [] */0
                   ]
                 ],
-                /* [] */0
+                /* :: */[
+                  /* tuple */[
+                    60,
+                    /* :: */[
+                      Css.opacity(0.1),
+                      /* :: */[
+                        Css.color(Css.white),
+                        /* [] */0
+                      ]
+                    ]
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      90,
+                      /* :: */[
+                        Css.opacity(1.0),
+                        /* :: */[
+                          Css.fontSize(fontSize$prime),
+                          /* [] */0
+                        ]
+                      ]
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        91,
+                        /* :: */[
+                          Css.opacity(0.0),
+                          /* :: */[
+                            Css.fontSize(fontSize$prime),
+                            /* :: */[
+                              Css.color(Css.red),
+                              /* [] */0
+                            ]
+                          ]
+                        ]
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          100,
+                          /* :: */[
+                            Css.opacity(0.0),
+                            /* :: */[
+                              Css.fontSize(/* zero */-789508312),
+                              /* [] */0
+                            ]
+                          ]
+                        ],
+                        /* [] */0
+                      ]
+                    ]
+                  ]
+                ]
               ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+            ]);
+}
 
 var appear = Css.keyframes(/* :: */[
       /* tuple */[
@@ -211,7 +220,7 @@ var appear = Css.keyframes(/* :: */[
       ],
       /* :: */[
         /* tuple */[
-          50,
+          30,
           /* :: */[
             Css.opacity(0.0),
             /* [] */0
@@ -219,7 +228,7 @@ var appear = Css.keyframes(/* :: */[
         ],
         /* :: */[
           /* tuple */[
-            70,
+            60,
             /* :: */[
               Css.opacity(0.1),
               /* [] */0
@@ -243,12 +252,13 @@ var Animations = {
   bounce: bounce,
   bounceAndDisappear: bounceAndDisappear,
   fadeIn: fadeIn,
-  letterFade: letterFade,
+  letterFadeOut: letterFadeOut,
   appear: appear
 };
 
 export {
   Colors ,
+  Fonts ,
   borderWidth ,
   Animations ,
   

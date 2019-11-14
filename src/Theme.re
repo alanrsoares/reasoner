@@ -14,6 +14,11 @@ module Colors = {
   let error = "B00020"->hex;
 };
 
+module Fonts = {
+  let text = "Montserrat";
+  let display = "Fredericka the Great";
+};
+
 let borderWidth = Css.(0.1->rem);
 
 module Animations = {
@@ -26,30 +31,30 @@ module Animations = {
       (100, [transform(scale(1.0, 1.0)), opacity(1.0)]),
     ]);
 
-  let bounceAndDisappear =
+  let bounceAndDisappear = height' =>
     keyframes([
-      (0, [height(40.->vh), transform(scale(0.1, 0.1)), opacity(0.0)]),
+      (0, [height(height'), transform(scale(0.1, 0.1)), opacity(0.0)]),
       (50, [transform(scale(1.2, 1.2)), opacity(1.0)]),
       (100, [transform(scale(0.0, 0.0)), opacity(0.0), height(`zero)]),
     ]);
 
   let fadeIn = keyframes([(0, [opacity(0.0)]), (100, [opacity(1.0)])]);
 
-  let letterFade =
+  let letterFadeOut = fontSize' =>
     keyframes([
-      (0, [opacity(0.0), fontSize(3.->rem)]),
-      (50, [opacity(0.0)]),
-      (70, [opacity(0.1), color(white)]),
-      (90, [opacity(1.0), fontSize(3.->rem)]),
-      (91, [opacity(0.0), fontSize(3.->rem), color(red)]),
-      (100, [opacity(0.0), fontSize(0.->rem)]),
+      (0, [opacity(0.0), fontSize(fontSize')]),
+      (30, [opacity(0.0)]),
+      (60, [opacity(0.1), color(white)]),
+      (90, [opacity(1.0), fontSize(fontSize')]),
+      (91, [opacity(0.0), fontSize(fontSize'), color(red)]),
+      (100, [opacity(0.0), fontSize(`zero)]),
     ]);
 
   let appear =
     keyframes([
       (0, [opacity(0.0)]),
-      (50, [opacity(0.0)]),
-      (70, [opacity(0.1)]),
+      (30, [opacity(0.0)]),
+      (60, [opacity(0.1)]),
       (100, [opacity(1.0)]),
     ]);
 };

@@ -5,7 +5,7 @@ module Styles = {
   let container =
     style([
       fontFamily(
-        "Montserrat, Segoe UI, Roboto, Monaco, Helvetica, sans-serif",
+        Fonts.text ++ ", Segoe UI, Roboto, Monaco, Helvetica, sans-serif",
       ),
       backgroundColor(Colors.background),
       display(`flex),
@@ -24,11 +24,13 @@ let make = () => {
   let url = ReasonReactRouter.useUrl();
 
   <main className=Styles.container>
-    {switch (url.path) {
-     | []
-     | [""] => <Landing />
-     | ["app"] => <Reasoner />
-     | _ => <div> "404 - Adrress not found"->Utils.str </div>
-     }}
+    {
+      switch (url.path) {
+      | []
+      | [""] => <Landing />
+      | ["app"] => <Reasoner />
+      | _ => <div> "404 - Adrress not found"->Utils.str </div>
+      }
+    }
   </main>;
 };

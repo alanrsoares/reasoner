@@ -28,7 +28,7 @@ var container = Css.style(/* :: */[
 var logo$1 = Css.style(/* :: */[
       Css.height(/* zero */-789508312),
       /* :: */[
-        Css.animationName(Theme$Reasoner.Animations.bounceAndDisappear),
+        Css.animationName(Theme$Reasoner.Animations.bounceAndDisappear(Css.vh(40))),
         /* :: */[
           Css.animationDuration(3000),
           /* [] */0
@@ -42,7 +42,7 @@ var titleWrapper = Css.style(/* :: */[
     ]);
 
 var title = Css.style(/* :: */[
-      Css.fontSize(Css.rem(3)),
+      Css.fontSize(Css.rem(2.6)),
       /* :: */[
         Css.fontWeight(/* `num */[
               5496390,
@@ -57,7 +57,7 @@ var title = Css.style(/* :: */[
               /* :: */[
                 Css.verticalAlign(/* middle */-866200747),
                 /* :: */[
-                  Css.fontFamily("Fredericka the Great"),
+                  Css.fontFamily(Theme$Reasoner.Fonts.display),
                   /* [] */0
                 ]
               ]
@@ -125,9 +125,9 @@ var body = Css.style(/* :: */[
       ]
     ]);
 
-function letterFade(delay) {
+function letterFadeOut(delay) {
   return Css.style(/* :: */[
-              Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.letterFade),
+              Css.animation(undefined, undefined, undefined, undefined, undefined, undefined, undefined, Theme$Reasoner.Animations.letterFadeOut(Css.rem(2.6))),
               /* :: */[
                 Css.animationDuration(3000),
                 /* :: */[
@@ -148,7 +148,7 @@ var Styles = {
   title: title,
   button: button,
   body: body,
-  letterFade: letterFade
+  letterFadeOut: letterFadeOut
 };
 
 function Landing$Button(Props) {
@@ -178,7 +178,7 @@ function Landing$TitleLetter(Props) {
               className: Css.merge(/* :: */[
                     title,
                     /* :: */[
-                      animate ? letterFade(0) : "",
+                      animate ? letterFadeOut(0) : "",
                       /* [] */0
                     ]
                   ])
@@ -202,20 +202,17 @@ function Landing(Props) {
                       children: x
                     });
         }));
-  return React.createElement(React.Fragment, undefined, React.createElement("img", {
-                  className: logo$1,
-                  src: logo
-                }), React.createElement("div", {
-                  className: container
+  return React.createElement("div", {
+              className: container
+            }, React.createElement("div", {
+                  className: body
                 }, React.createElement("div", {
-                      className: body
-                    }, React.createElement("div", {
-                          className: titleWrapper
-                        }, Belt_List.toArray(brand)), React.createElement(Link$Reasoner.make, {
-                          path: "app",
-                          className: button,
-                          children: Utils$Reasoner.str("Start here")
-                        }))));
+                      className: titleWrapper
+                    }, Belt_List.toArray(brand)), React.createElement(Link$Reasoner.make, {
+                      path: "app",
+                      className: button,
+                      children: Utils$Reasoner.str("Start here")
+                    })));
 }
 
 var make = Landing;

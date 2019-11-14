@@ -9,7 +9,7 @@ import * as ReasonReactRouter from "reason-react/src/ReasonReactRouter.js";
 import * as Reasoner$Reasoner from "./Reasoner.bs.js";
 
 var container = Css.style(/* :: */[
-      Css.fontFamily("Montserrat, Segoe UI, Roboto, Monaco, Helvetica, sans-serif"),
+      Css.fontFamily(Theme$Reasoner.Fonts.text + ", Segoe UI, Roboto, Monaco, Helvetica, sans-serif"),
       /* :: */[
         Css.backgroundColor(Theme$Reasoner.Colors.background),
         /* :: */[
