@@ -54,10 +54,9 @@ module Controls = {
 
 [@genType]
 [@react.component]
-let make = () => {
+let make = () =>
   <div className=Styles.container>
     <h1 className=Styles.title> "Reasoner"->str </h1>
     <Display />
     <Controls> <Button /> </Controls>
   </div>;
-};

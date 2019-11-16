@@ -26,10 +26,6 @@
     ]
   },
   "dependencies": {
-    "@types/jest": "24.0.22",
-    "@types/node": "12.12.6",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.4",
     "bs-css": "^10.0.1",
     "gh-pages": "^2.1.1",
     "normalize.css": "^8.0.1",
@@ -37,12 +33,10 @@
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
     "reason-react": "0.7.0",
-    "reductive": "^2.0.1",
-    "typescript": "~3.6.2"
+    "reductive": "^2.0.1"
   },
   "devDependencies": {
     "bs-platform": "6.2.1",
-    "gentype": "^3.2.0",
     "husky": "^3.0.9"
   }
 }

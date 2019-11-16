@@ -20,11 +20,5 @@
   "namespace": true,
   "bs-dependencies": ["reason-react", "bs-css"],
   "ppx-flags": [],
-  "refmt": 3,
-  "gentypeconfig": {
-    "language": "typescript",
-    "shims": {
-      "ReasonReact": "ReactShim"
-    }
-  }
+  "refmt": 3
 }
