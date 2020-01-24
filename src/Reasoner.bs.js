@@ -169,7 +169,7 @@ function Reasoner(Props) {
                                           children: Utils$Reasoner.arr(Belt_Array.map(row, (function (n) {
                                                       return React.createElement(Reasoner$Button, {
                                                                   children: String(n),
-                                                                  key: String(n) + ("." + String(i))
+                                                                  key: String(n)
                                                                 });
                                                     }))),
                                           key: String(i)

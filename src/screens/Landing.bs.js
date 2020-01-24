@@ -196,10 +196,11 @@ function isVowel(x) {
 }
 
 function Landing(Props) {
-  var brand = Belt_List.map(Utils$Reasoner.split("REASONER"), (function (x) {
+  var brand = Belt_List.mapWithIndex(Utils$Reasoner.split("REASONER"), (function (i, x) {
           return React.createElement(Landing$TitleLetter, {
                       animate: $$String.contains("aAeEiIoOuU", Caml_string.get(x, 0)),
-                      children: x
+                      children: x,
+                      key: String(i)
                     });
         }));
   return React.createElement("div", {
@@ -208,7 +209,7 @@ function Landing(Props) {
                   className: body
                 }, React.createElement("div", {
                       className: titleWrapper
-                    }, Belt_List.toArray(brand)), React.createElement(Link$Reasoner.make, {
+                    }, Utils$Reasoner.lst(brand)), React.createElement(Link$Reasoner.make, {
                       path: "app",
                       className: button,
                       children: Utils$Reasoner.str("Start here")

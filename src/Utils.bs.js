@@ -3,6 +3,7 @@
 import * as List from "bs-platform/lib/es6/list.js";
 import * as $$Array from "bs-platform/lib/es6/array.js";
 import * as $$String from "bs-platform/lib/es6/string.js";
+import * as Belt_List from "bs-platform/lib/es6/belt_List.js";
 import * as Caml_string from "bs-platform/lib/es6/caml_string.js";
 
 function str(prim) {
@@ -13,6 +14,8 @@ function arr(prim) {
   return prim;
 }
 
+var lst = Belt_List.toArray;
+
 function split(s) {
   return List.map((function (s) {
                 return $$String.make(1, Caml_string.get(s, 0));
@@ -22,6 +25,7 @@ function split(s) {
 export {
   str ,
   arr ,
+  lst ,
   split ,
   
 }

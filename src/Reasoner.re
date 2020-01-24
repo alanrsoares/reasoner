@@ -76,18 +76,17 @@ let make = () =>
     <h1 className=Styles.title> "Reasoner"->str </h1>
     <Display />
     <Controls>
-      {rows
-       ->Belt.Array.mapWithIndex((i, row) =>
-           <Row key={i->string_of_int}>
-             {row
-              ->Belt.Array.map(n =>
-                  <Button key={n->string_of_int ++ "." ++ i->string_of_int}>
-                    n->string_of_int
-                  </Button>
-                )
-              ->arr}
-           </Row>
-         )
-       ->arr}
+      Belt.Array.(
+        rows->mapWithIndex((i, row) =>
+          <Row key={i->string_of_int}>
+            {row
+             ->map(n =>
+                 <Button key={n->string_of_int}> n->string_of_int </Button>
+               )
+             ->arr}
+          </Row>
+        )
+      )
+      ->arr
     </Controls>
   </div>;

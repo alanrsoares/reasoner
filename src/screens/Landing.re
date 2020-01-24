@@ -98,15 +98,15 @@ let make = () => {
   let brand =
     "REASONER"
     ->split
-    ->Belt.List.map(x =>
-        <TitleLetter animate={isVowel(x.[0])}> x </TitleLetter>
+    ->Belt.List.mapWithIndex((i, x) =>
+        <TitleLetter key={i->string_of_int} animate={isVowel(x.[0])}>
+          x
+        </TitleLetter>
       );
 
   <div className=Styles.container>
     <div className=Styles.body>
-      <div className=Styles.titleWrapper>
-        {brand->Belt.List.toArray->ReasonReact.array}
-      </div>
+      <div className=Styles.titleWrapper> brand->lst </div>
       <Link path="app" className=Styles.button> "Start here"->str </Link>
     </div>
   </div>;

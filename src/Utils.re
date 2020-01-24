@@ -2,6 +2,8 @@ let str = ReasonReact.string;
 
 let arr = ReasonReact.array;
 
+let lst = xs => xs->Belt.List.toArray->arr;
+
 let split = s =>
   s
   |> Js.String.split("")
