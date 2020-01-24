@@ -2,12 +2,12 @@
 
 
 function fromMinutes(minutes) {
-  return /* record */[
-          /* miliseconds */0,
-          /* seconds */0,
-          /* minutes */minutes,
-          /* hours */0
-        ];
+  return {
+          miliseconds: 0,
+          seconds: 0,
+          minutes: minutes,
+          hours: 0
+        };
 }
 
 export {

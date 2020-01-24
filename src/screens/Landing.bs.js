@@ -5,9 +5,9 @@ import * as React from "react";
 import * as $$String from "bs-platform/lib/es6/string.js";
 import * as Belt_List from "bs-platform/lib/es6/belt_List.js";
 import * as Caml_string from "bs-platform/lib/es6/caml_string.js";
-import * as Link$Reasoner from "./Link.bs.js";
-import * as Theme$Reasoner from "./Theme.bs.js";
-import * as Utils$Reasoner from "./Utils.bs.js";
+import * as Link$Reasoner from "../Link.bs.js";
+import * as Theme$Reasoner from "../Theme.bs.js";
+import * as Utils$Reasoner from "../Utils.bs.js";
 
 var logo = (require('./logo.svg'));
 

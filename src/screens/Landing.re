@@ -1,4 +1,5 @@
 let logo: string = [%bs.raw {|require('./logo.svg')|}];
+
 open Utils;
 
 module Styles = {
@@ -104,7 +105,7 @@ let make = () => {
   <div className=Styles.container>
     <div className=Styles.body>
       <div className=Styles.titleWrapper>
-        brand->Belt.List.toArray->ReasonReact.array
+        {brand->Belt.List.toArray->ReasonReact.array}
       </div>
       <Link path="app" className=Styles.button> "Start here"->str </Link>
     </div>

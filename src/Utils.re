@@ -1,5 +1,7 @@
 let str = ReasonReact.string;
 
+let arr = ReasonReact.array;
+
 let split = s =>
   s
   |> Js.String.split("")

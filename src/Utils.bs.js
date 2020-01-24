@@ -9,6 +9,10 @@ function str(prim) {
   return prim;
 }
 
+function arr(prim) {
+  return prim;
+}
+
 function split(s) {
   return List.map((function (s) {
                 return $$String.make(1, Caml_string.get(s, 0));
@@ -17,6 +21,7 @@ function split(s) {
 
 export {
   str ,
+  arr ,
   split ,
   
 }

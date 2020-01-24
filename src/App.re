@@ -24,13 +24,11 @@ let make = () => {
   let url = ReasonReactRouter.useUrl();
 
   <main className=Styles.container>
-    {
-      switch (url.path) {
-      | []
-      | [""] => <Landing />
-      | ["app"] => <Reasoner />
-      | _ => <div> "404 - Adrress not found"->Utils.str </div>
-      }
-    }
+    {switch (url.path) {
+     | []
+     | [""] => <Landing />
+     | ["app"] => <Reasoner />
+     | _ => <div> "404 - Adrress not found"->Utils.str </div>
+     }}
   </main>;
 };

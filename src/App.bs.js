@@ -4,7 +4,7 @@ import * as Css from "bs-css/src/Css.js";
 import * as React from "react";
 import * as Theme$Reasoner from "./Theme.bs.js";
 import * as Utils$Reasoner from "./Utils.bs.js";
-import * as Landing$Reasoner from "./Landing.bs.js";
+import * as Landing$Reasoner from "./screens/Landing.bs.js";
 import * as ReasonReactRouter from "reason-react/src/ReasonReactRouter.js";
 import * as Reasoner$Reasoner from "./Reasoner.bs.js";
 
@@ -46,7 +46,7 @@ var Styles = {
 
 function App(Props) {
   var url = ReasonReactRouter.useUrl(undefined, /* () */0);
-  var match = url[/* path */0];
+  var match = url.path;
   var tmp;
   var exit = 0;
   if (match) {

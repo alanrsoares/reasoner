@@ -23,7 +23,7 @@ module Styles = {
       alignItems(`center),
     ]);
 
-  let display =
+  let screen =
     style([
       border(Theme.borderWidth, `solid, Colors.accent),
       padding(1.->rem),
@@ -33,18 +33,33 @@ module Styles = {
     style([
       border(Theme.borderWidth, `solid, Colors.accent),
       padding(1.->rem),
-      flex(`num(1.0)),
+      display(`flex),
+      flexWrap(`wrap),
+      flexDirection(`column),
+    ]);
+
+  let row =
+    style([
+      display(`flex),
+      justifyContent(`spaceEvenly),
+      padding(0.5->rem),
     ]);
 };
 
 module Display = {
   [@react.component]
-  let make = () => <div className=Styles.display> "display"->str </div>;
+  let make = () => <div className=Styles.screen> "display"->str </div>;
 };
 
 module Button = {
   [@react.component]
-  let make = () => <div className=Styles.button> "button"->str </div>;
+  let make = (~children) =>
+    <div className=Styles.button> children->str </div>;
+};
+
+module Row = {
+  [@react.component]
+  let make = (~children) => <div className=Styles.row> children </div>;
 };
 
 module Controls = {
@@ -52,11 +67,27 @@ module Controls = {
   let make = (~children) => <div className=Styles.controls> children </div>;
 };
 
+let rows = [|[|7, 8, 9|], [|4, 5, 6|], [|1, 2, 3|], [|0|]|];
+
 [@genType]
 [@react.component]
 let make = () =>
   <div className=Styles.container>
     <h1 className=Styles.title> "Reasoner"->str </h1>
     <Display />
-    <Controls> <Button /> </Controls>
+    <Controls>
+      {rows
+       ->Belt.Array.mapWithIndex((i, row) =>
+           <Row key={i->string_of_int}>
+             {row
+              ->Belt.Array.map(n =>
+                  <Button key={n->string_of_int ++ "." ++ i->string_of_int}>
+                    n->string_of_int
+                  </Button>
+                )
+              ->arr}
+           </Row>
+         )
+       ->arr}
+    </Controls>
   </div>;
